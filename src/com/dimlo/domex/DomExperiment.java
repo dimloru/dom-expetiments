@@ -8,6 +8,7 @@ import java.io.FileReader;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 public class DomExperiment {
@@ -31,7 +32,18 @@ public class DomExperiment {
         NodeList children = root.getChildNodes();
         System.out.println("Nubmer of chilren: " + children.getLength());
 
+        stepThroughNodes(root);
 
+
+    }
+
+    private static void stepThroughNodes(Node start) {
+        System.out.println(start.getNodeName() + " = " + start.getNodeValue());
+        for (Node child = start.getFirstChild();
+             child != null;
+             child = child.getNextSibling()) {
+            stepThroughNodes(child);
+        }
     }
 
 }
