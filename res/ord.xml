@@ -14,6 +14,9 @@
    <qty>1</qty>
   </item>
  </order>
+ <![CDATA[
+  <order>Important: Please keep head and hands inside ride at <i>all times</i>.
+  </order> ]]>
  <order>
   <customerid limit="150">251222</customerid>
   <status>pending</status>

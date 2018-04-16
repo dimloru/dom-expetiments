@@ -29,7 +29,15 @@ public class DomExperiment {
         NodeList children = root.getChildNodes();
         System.out.println("Nubmer of chilren: " + children.getLength());
 
+        NodeList orders = root.getElementsByTagName("order");
+        for (int i = 0; i < orders.getLength(); i++) {
+            orders.item(i).getPreviousSibling().setNodeValue("<!-- Comment!!! -->");
+        }
+
         stepThroughNodes(root);
+
+        System.out.println("=============================================");
+        System.out.println(doc.toString());
 
 
     }
