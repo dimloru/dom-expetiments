@@ -6,10 +6,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
+import org.w3c.dom.*;
 
 public class DomExperiment {
     public static void main(String[] args) throws Exception {
@@ -39,6 +36,16 @@ public class DomExperiment {
 
     private static void stepThroughNodes(Node start) {
         System.out.println(start.getNodeName() + " = " + start.getNodeValue());
+
+        //checking attributes
+        if (start.getNodeType() == start.ELEMENT_NODE) {
+            NamedNodeMap attributes = start.getAttributes();
+            for (int i = 0; i < attributes.getLength(); i++) {
+                Node att = attributes.item(i);
+                System.out.println("    Attribute: " + att.getNodeName() + " = " + att.getNodeValue());
+            }
+        }
+
         for (Node child = start.getFirstChild();
              child != null;
              child = child.getNextSibling()) {
